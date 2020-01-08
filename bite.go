@@ -7,8 +7,9 @@ import (
 	"html/template"
 	"log"
 	"os"
-	"path/filepath"
 	"strings"
+
+	"github.com/bmatcuk/doublestar"
 )
 
 var (
@@ -35,7 +36,7 @@ func main() {
 
 	for _, g := range flag.Args() {
 		fmt.Println(g)
-		matches, err := filepath.Glob(g)
+		matches, err := doublestar.Glob(g)
 		if err != nil {
 			log.Fatal(err)
 		}
